@@ -1,0 +1,28 @@
+
+
+{
+"Print to console": {
+    "prefix": "log",
+     "body": [
+     "console.log('$1');",
+     "$2"
+     ],
+    "description": "Log output to console"
+ }
+    
+    
+    "add a shebang": {
+         
+    "prefix": "sh",
+     
+    "body": [
+         "#!/bin/bash",
+         ],
+         "description": "Add shebang to script"
+     
+    }
+
+  
+       
+      
+}
