@@ -1,14 +1,6 @@
 #!/bin/bash 
-      
-#get info about networking from the ifconfig command 
-      
-net_info="$(cat IpInfo.sh)" 
-      
-#parse out the ip address lines using sed 
-      
-addresses=$(echo "$net_info" | sed -n 'inet/IP Address:/ p') 
-      
-#format output 
-      
-echo -e "IP addresses on this computer are:\n$addresses" 
-     
+echo -e "IP addresses on this computer are:\n"
+echo -n "IP Address:"
+        ifconfig | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1' | sed '2 d' | head -n1;
+echo -n "IP Address:"
+        ifconfig | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1' | sed '1 d' | head -n1;
