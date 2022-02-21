@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en-US">
+
+	<head profile="http://gmpg.org/xfn/11">
+
+<style>.async-hide{opacity:0 !important}</style>
+<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',4000,
+{'GTM-W96NKP':true});</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W96NKP');</script>
+<!-- End Google Tag Manager -->
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+				
+				 
+		<meta name='robots' content='max-image-preview:large' />
+<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+
+	<!-- This site is optimized with the Yoast SEO plugin v14.7 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Web Scraping Tutorial -- episode #1 -- Scraping a Webpage (with Bash)</title>
+	<meta name="description" content="These web scraping tutorial articles (for jr. data scientists) will show you how to scrape, download and extract data from a webpage and how to analyze it." />
+	<meta name="robots" content="index, follow" />
+	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<link rel="canonical" href="https://data36.com/web-scraping-tutorial-episode-1-scraping-a-webpage-with-bash/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Web Scraping Tutorial -- episode #1 -- Scraping a Webpage (with Bash)" />
+	<meta property="og:description" content="These web scraping tutorial articles (for jr. data scientists) will show you how to scrape, download and extract data from a webpage and how to analyze it." />
+	<meta property="og:url" content="https://data36.com/web-scraping-tutorial-episode-1-scraping-a-webpage-with-bash/" />
+	<meta property="og:site_name" content="Data36" />
+	<meta property="article:publisher" content="https://www.facebook.com/data36/" />
+	<meta property="article:author" content="https://www.facebook.com/data36" />
+	<meta property="article:published_time" content="2020-01-28T00:53:16+00:00" />
+	<meta property="article:modified_time" content="2020-02-06T14:49:45+00:00" />
+	<meta property="og:image" content="https://data36.com/wp-content/uploads/2020/01/web_scraping.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Web Scraping Tutorial -- episode #1 -- Scraping a Webpage (with Bash)" />
+	<meta name="twitter:description" content="These web scraping tutorial articles (for jr. data scientists) will show you how to scrape, download and extract data from a webpage and how to analyze it." />
+	<meta name="twitter:image" content="https://data36.com/wp-content/uploads/2020/01/web_scraping.png" />
+	<meta name="twitter:creator" content="@data36_com" />
+	<meta name="twitter:site" content="@data36_com" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://data36.com/#website","url":"https://data36.com/","name":"Data36","description":"Blog about Data Science and Online Data Analysis","potentialAction":[{"@type":"SearchAction","target":"https://data36.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://data36.com/web-scraping-tutorial-episode-1-scraping-a-webpage-with-bash/#primaryimage","inLanguage":"en-US","url":"https://data36.com/wp-content/uploads/2017/10/coding-in-data-science-and-analytics-e1581427214427.png","width":2000,"height":200,"caption":"coding in data science and analytics"},{"@type":"WebPage","@id":"https://data36.com/web-scraping-tutorial-episode-1-scraping-a-webpage-with-bash/#webpage","url":"https://data36.com/web-scraping-tutorial-episode-1-scraping-a-webpage-with-bash/","name":"Web Scraping Tutorial -- episode #1 -- Scraping a Webpage (with Bash)","isPartOf":{"@id":"https://data36.com/#website"},"primaryImageOfPage":{"@id":"https://data36.com/web-scraping-tutorial-episode-1-scraping-a-webpage-with-bash/#primaryimage"},"datePublished":"2020-01-28T00:53:16+00:00","dateModified":"2020-02-06T14:49:45+00:00","author":{"@id":"https://data36.com/#/schema/person/cbc505eee4cecd9d74a2c0f0d00d356e"},"description":"These web scraping tutorial articles (for jr. data scientists) will show you how to scrape, download and extract data from a webpage and how to analyze it.","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://data36.com/web-scraping-tutorial-episode-1-scraping-a-webpage-with-bash/"]}]},{"@type":["Person"],"@id":"https://data36.com/#/schema/person/cbc505eee4cecd9d74a2c0f0d00d356e","name":"Tomi Mester","image":{"@type":"ImageObject","@id":"https://data36.com/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/8b782b29236065ff5e1c0e47a8bdb6ba?s=96&d=mm&r=g","caption":"Tomi Mester"},"description":"Tomi Mester is a data analyst and researcher. He\u2019s the author of the Data36 blog where he gives a sneak peek into online data analysts\u2019 best practices. He writes posts and tutorials on a weekly basis about data science, AB-testing, online research and data coding. Tomi is a guest blogger on Crazyegg, Hackernoon and Tech-In-Asia. You can meet him as a presenter on conferences like: Global E-commerce Summit, TEDx, Business Intelligence Forum, etc...","sameAs":["https://www.facebook.com/data36"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Data36 &raquo; Feed" href="https://data36.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Data36 &raquo; Comments Feed" href="https://data36.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Data36 &raquo; Web Scraping Tutorial &#8212; episode #1 &#8212; Scraping a Webpage (with Bash) Comments Feed" href="https://data36.com/web-scraping-tutorial-episode-1-scraping-a-webpage-with-bash/feed/" />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/data36.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.9"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">img.wp-smiley,img.emoji{display:inline !important;border:none !important;box-shadow:none !important;height:1em !important;width:1em !important;margin:0 .07em !important;vertical-align:-.1em !important;background:0 0 !important;padding:0 !important}</style>
+	<link data-optimized="1" rel='stylesheet' id='wp-quicklatex-format-css'  href='https://data36.com/wp-content/litespeed/cssjs/14f27.css?5055a' type='text/css' media='all' />
+<link data-optimized="1" rel='stylesheet' id='wp-block-library-css'  href='https://data36.com/wp-content/litespeed/cssjs/87d83.css?6cd36' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>body{--wp--preset--color--black:#000;--wp--preset--color--cyan-bluish-gray:#abb8c3;--wp--preset--color--white:#fff;--wp--preset--color--pale-pink:#f78da7;--wp--preset--color--vivid-red:#cf2e2e;--wp--preset--color--luminous-vivid-orange:#ff6900;--wp--preset--color--luminous-vivid-amber:#fcb900;--wp--preset--color--light-green-cyan:#7bdcb5;--wp--preset--color--vivid-green-cyan:#00d084;--wp--preset--color--pale-cyan-blue:#8ed1fc;--wp--preset--color--vivid-cyan-blue:#0693e3;--wp--preset--color--vivid-purple:#9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple:linear-gradient(135deg,rgba(6,147,227,1) 0%,#9b51e0 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan:linear-gradient(135deg,#7adcb4 0%,#00d082 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange:linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red:linear-gradient(135deg,rgba(255,105,0,1) 0%,#cf2e2e 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray:linear-gradient(135deg,#eee 0%,#a9b8c3 100%);--wp--preset--gradient--cool-to-warm-spectrum:linear-gradient(135deg,#4aeadc 0%,#9778d1 20%,#cf2aba 40%,#ee2c82 60%,#fb6962 80%,#fef84c 100%);--wp--preset--gradient--blush-light-purple:linear-gradient(135deg,#ffceec 0%,#9896f0 100%);--wp--preset--gradient--blush-bordeaux:linear-gradient(135deg,#fecda5 0%,#fe2d2d 50%,#6b003e 100%);--wp--preset--gradient--luminous-dusk:linear-gradient(135deg,#ffcb70 0%,#c751c0 50%,#4158d0 100%);--wp--preset--gradient--pale-ocean:linear-gradient(135deg,#fff5cb 0%,#b6e3d4 50%,#33a7b5 100%);--wp--preset--gradient--electric-grass:linear-gradient(135deg,#caf880 0%,#71ce7e 100%);--wp--preset--gradient--midnight:linear-gradient(135deg,#020381 0%,#2874fc 100%);--wp--preset--duotone--dark-grayscale:url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale:url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow:url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red:url('#wp-duotone-blue-red');--wp--preset--duotone--midnight:url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow:url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green:url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange:url('#wp-duotone-blue-orange');--wp--preset--font-size--small:13px;--wp--preset--font-size--medium:20px;--wp--preset--font-size--large:36px;--wp--preset--font-size--x-large:42px}.has-black-color{color:var(--wp--preset--color--black) !important}.has-cyan-bluish-gray-color{color:var(--wp--preset--color--cyan-bluish-gray) !important}.has-white-color{color:var(--wp--preset--color--white) !important}.has-pale-pink-color{color:var(--wp--preset--color--pale-pink) !important}.has-vivid-red-color{color:var(--wp--preset--color--vivid-red) !important}.has-luminous-vivid-orange-color{color:var(--wp--preset--color--luminous-vivid-orange) !important}.has-luminous-vivid-amber-color{color:var(--wp--preset--color--luminous-vivid-amber) !important}.has-light-green-cyan-color{color:var(--wp--preset--color--light-green-cyan) !important}.has-vivid-green-cyan-color{color:var(--wp--preset--color--vivid-green-cyan) !important}.has-pale-cyan-blue-color{color:var(--wp--preset--color--pale-cyan-blue) !important}.has-vivid-cyan-blue-color{color:var(--wp--preset--color--vivid-cyan-blue) !important}.has-vivid-purple-color{color:var(--wp--preset--color--vivid-purple) !important}.has-black-background-color{background-color:var(--wp--preset--color--black) !important}.has-cyan-bluish-gray-background-color{background-color:var(--wp--preset--color--cyan-bluish-gray) !important}.has-white-background-color{background-color:var(--wp--preset--color--white) !important}.has-pale-pink-background-color{background-color:var(--wp--preset--color--pale-pink) !important}.has-vivid-red-background-color{background-color:var(--wp--preset--color--vivid-red) !important}.has-luminous-vivid-orange-background-color{background-color:var(--wp--preset--color--luminous-vivid-orange) !important}.has-luminous-vivid-amber-background-color{background-color:var(--wp--preset--color--luminous-vivid-amber) !important}.has-light-green-cyan-background-color{background-color:var(--wp--preset--color--light-green-cyan) !important}.has-vivid-green-cyan-background-color{background-color:var(--wp--preset--color--vivid-green-cyan) !important}.has-pale-cyan-blue-background-color{background-color:var(--wp--preset--color--pale-cyan-blue) !important}.has-vivid-cyan-blue-background-color{background-color:var(--wp--preset--color--vivid-cyan-blue) !important}.has-vivid-purple-background-color{background-color:var(--wp--preset--color--vivid-purple) !important}.has-black-border-color{border-color:var(--wp--preset--color--black) !important}.has-cyan-bluish-gray-border-color{border-color:var(--wp--preset--color--cyan-bluish-gray) !important}.has-white-border-color{border-color:var(--wp--preset--color--white) !important}.has-pale-pink-border-color{border-color:var(--wp--preset--color--pale-pink) !important}.has-vivid-red-border-color{border-color:var(--wp--preset--color--vivid-red) !important}.has-luminous-vivid-orange-border-color{border-color:var(--wp--preset--color--luminous-vivid-orange) !important}.has-luminous-vivid-amber-border-color{border-color:var(--wp--preset--color--luminous-vivid-amber) !important}.has-light-green-cyan-border-color{border-color:var(--wp--preset--color--light-green-cyan) !important}.has-vivid-green-cyan-border-color{border-color:var(--wp--preset--color--vivid-green-cyan) !important}.has-pale-cyan-blue-border-color{border-color:var(--wp--preset--color--pale-cyan-blue) !important}.has-vivid-cyan-blue-border-color{border-color:var(--wp--preset--color--vivid-cyan-blue) !important}.has-vivid-purple-border-color{border-color:var(--wp--preset--color--vivid-purple) !important}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background:var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background:var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background:var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background:var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background:var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important}.has-cool-to-warm-spectrum-gradient-background{background:var(--wp--preset--gradient--cool-to-warm-spectrum) !important}.has-blush-light-purple-gradient-background{background:var(--wp--preset--gradient--blush-light-purple) !important}.has-blush-bordeaux-gradient-background{background:var(--wp--preset--gradient--blush-bordeaux) !important}.has-luminous-dusk-gradient-background{background:var(--wp--preset--gradient--luminous-dusk) !important}.has-pale-ocean-gradient-background{background:var(--wp--preset--gradient--pale-ocean) !important}.has-electric-grass-gradient-background{background:var(--wp--preset--gradient--electric-grass) !important}.has-midnight-gradient-background{background:var(--wp--preset--gradient--midnight) !important}.has-small-font-size{font-size:var(--wp--preset--font-size--small) !important}.has-medium-font-size{font-size:var(--wp--preset--font-size--medium) !important}.has-large-font-size{font-size:var(--wp--preset--font-size--large) !important}.has-x-large-font-size{font-size:var(--wp--preset--font-size--x-large) !important}</style>
+<link data-optimized="1" rel='stylesheet' id='contact-form-7-css'  href='https://data36.com/wp-content/litespeed/cssjs/bfe2e.css?7273c' type='text/css' media='all' />
+<link data-optimized="1" rel='stylesheet' id='cookie-notice-front-css'  href='https://data36.com/wp-content/litespeed/cssjs/cc19b.css?3dbe4' type='text/css' media='all' />
+<link data-optimized="1" rel='stylesheet' id='popup-maker-site-css'  href='https://data36.com/wp-content/litespeed/cssjs/6d75c.css?cf019' type='text/css' media='all' />
+<link data-optimized="1" rel='stylesheet' id='fukasawa_googleFonts-css'  href='https://data36.com/wp-content/litespeed/cssjs/493bd.css?493bd' type='text/css' media='all' />
+<link data-optimized="1" rel='stylesheet' id='fukasawa_genericons-css'  href='https://data36.com/wp-content/litespeed/cssjs/d0987.css?31648' type='text/css' media='all' />
+<link data-optimized="1" rel='stylesheet' id='fukasawa_style-css'  href='https://data36.com/wp-content/litespeed/cssjs/3bc76.css?98f05' type='text/css' media='all' />
+<script>if (document.location.protocol != "https:") {document.location = document.URL.replace(/^http:/i, "https:");}</script><script type='text/javascript' src='https://data36.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/a00de.js?ff04e' id='jquery-migrate-js'></script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/1473e.js?17d81' id='wp-quicklatex-frontend-js'></script>
+<link rel="https://api.w.org/" href="https://data36.com/wp-json/" /><link rel="alternate" type="application/json" href="https://data36.com/wp-json/wp/v2/posts/4654" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://data36.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://data36.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.9" />
+<link rel='shortlink' href='https://data36.com/?p=4654' />
+<link rel="alternate" type="application/json+oembed" href="https://data36.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdata36.com%2Fweb-scraping-tutorial-episode-1-scraping-a-webpage-with-bash%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://data36.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdata36.com%2Fweb-scraping-tutorial-episode-1-scraping-a-webpage-with-bash%2F&#038;format=xml" />
+<link rel="shortcut icon" href="https://data36.com/wp-content/uploads/2016/08/favico-1.png"/>
+<link rel="apple-touch-icon" href="https://data36.com/wp-content/uploads/2016/08/apple_icon.png"/>
+<style type="text/css" id="tve_global_variables">:root{--tcb-color-0:rgba(29,36,72,.85);--tcb-color-1:rgba(0,0,0,.7)}</style>      
+	      <!-- Customizer CSS --> 
+	      
+	      <style type="text/css"></style> 
+	      
+	      <!--/Customizer CSS-->
+	      
+      <style type="text/css" id="thrive-default-styles"></style>		<style type="text/css" id="wp-custom-css">#very-special-field{width:100%;height:45px;font-size:.9em;background:#f2f2f2;border:none;padding:14px 16px}#mce-COURSE_TYP{width:100%;height:45px;font-size:.9em;background:#f2f2f2;border:none;padding:14px 16px}#very-special-submitfield{background:#428d5e;font-size:1.2em}#very-special-submitfield:hover{background:#62cc87}.himynameis:hover{cursor:pointer;background:#62cc87;color:#fff}.himynameis{padding:12px 16px;margin:0 0 20px;border:none;background:#428d5e;color:#fff;font-size:1.2em;line-height:1;-webkit-appearance:none;border-radius:3px;-webkit-transition:all .2s ease-in-out;display:inline-block;text-align:center}h2,h3,h4,h5,h6{line-height:1.2em}h3{font-size:1.3em}h4{font-size:1.2em;font-style:italic}figcaption{font-size:.9em;text-align:center;font-style:italic;display:block !important}.last-updated{font-size:.8em;font-style:italic;margin-bottom:0;margin-top:12px;display:block}.wp-block-table{margin-bottom:2em}</style>
+			
+	</head>
+	
+	<body data-rsssl=1 class="post-template-default single single-post postid-4654 single-format-standard cookies-not-set wp-is-not-mobile">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W96NKP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	
+		<div class="mobile-navigation">
+	
+			<ul class="mobile-menu">
+						
+				<li id="menu-item-2049" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2049"><a href="https://data36.com/jds/" data-wpel-link="internal">6-week Online Course</a></li>
+<li id="menu-item-3003" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3003"><a href="https://data36.com/how-to-become-a-data-scientist/" data-wpel-link="internal">How to Become a Data Scientist</a></li>
+<li id="menu-item-4459" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4459"><a href="https://data36.com/inner-circle-data36-newsletter-free-data-science-resources/" data-wpel-link="internal">Start with data science! (Free materials)</a></li>
+<li id="menu-item-5554" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5554"><a href="https://www.youtube.com/playlist?list=PLHS1p0ot3SViZMNfr2jVjAcutht0g3Ep7" data-wpel-link="external" target="_blank" rel="external noopener noreferrer">Learn SQL! (Video tutorial)</a></li>
+<li id="menu-item-87" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-87"><a href="https://data36.com" data-wpel-link="internal">Blog</a></li>
+<li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-38"><a href="https://data36.com/tomi-mester/" data-wpel-link="internal">About Me</a></li>
+<li id="menu-item-2190" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2190"><a href="https://data36.com/privacy-policy/" data-wpel-link="internal">Privacy Policy</a></li>
+				
+			 </ul>
+		 
+		</div> <!-- /mobile-navigation -->
+	
+		<div class="sidebar">
+		
+						
+		        <a class="blog-logo" href="https://data36.com/" title="Data36 &mdash; Blog about Data Science and Online Data Analysis" rel="home" data-wpel-link="internal">
+		        	<img src='https://data36.com/wp-content/uploads/2017/03/web_logo-3-e1490559323563.png' alt='Data36'>
+		        </a>
+		
+						
+			<a class="nav-toggle hidden" title="Click to view the navigation" href="#">
+			
+				<div class="bars">
+				
+					<div class="bar"></div>
+					<div class="bar"></div>
+					<div class="bar"></div>
+					
+					<div class="clear"></div>
+				
+				</div>
+				
+				<p>
+					<span class="menu">Menu</span>
+					<span class="close">Close</span>
+				</p>
+			
+			</a>
+			
+			<ul class="main-menu">
+				
+				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2049"><a href="https://data36.com/jds/" data-wpel-link="internal">6-week Online Course</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3003"><a href="https://data36.com/how-to-become-a-data-scientist/" data-wpel-link="internal">How to Become a Data Scientist</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4459"><a href="https://data36.com/inner-circle-data36-newsletter-free-data-science-resources/" data-wpel-link="internal">Start with data science! (Free materials)</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5554"><a href="https://www.youtube.com/playlist?list=PLHS1p0ot3SViZMNfr2jVjAcutht0g3Ep7" data-wpel-link="external" target="_blank" rel="external noopener noreferrer">Learn SQL! (Video tutorial)</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-87"><a href="https://data36.com" data-wpel-link="internal">Blog</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-38"><a href="https://data36.com/tomi-mester/" data-wpel-link="internal">About Me</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2190"><a href="https://data36.com/privacy-policy/" data-wpel-link="internal">Privacy Policy</a></li>
+				
+			 </ul>
+			 
+			 <div class="widgets">
+			 
+			 	<div class="widget widget_search"><div class="widget-content"><form method="get" class="search-form" id="search-form" action="https://data36.com/">
+	<input type="search" class="search-field" placeholder="Search form" name="s" id="s" /> 
+	<a id="searchsubmit" class="search-button" onclick="document.getElementById('search-form').submit(); return false;"><div class="genericon genericon-search"></div></a>
+</form></div><div class="clear"></div></div><div class="widget widget_text"><div class="widget-content">			<div class="textwidget"><img style="float:left; width:50px; height: 50px; margin-right:10px; border-style: none; align: right;" src="https://data36.com/wp-content/uploads/2017/03/tomi-mester-e1490384534670.png" alt="Tomi Mester - author of data36.com" /> Hey, I'm Tomi Mester. This is my data blog, where I give you a sneak peek into online data analysts' best practices. You will find articles and videos about data analysis, AB-testing, research, data science and more…</div>
+		</div><div class="clear"></div></div>			 
+			 </div>
+			 
+			 <div class="credits">
+			 
+			 	<p>&copy; 2022 <a href="https://data36.com/" data-wpel-link="internal">Data36</a>.</p>
+			 	<p>Powered by <a href="https://www.wordpress.org" data-wpel-link="external" target="_blank" rel="external noopener noreferrer">WordPress</a>.</p>
+			 	
+			 </div>
+			
+			 <div class="clear"></div>
+							
+		</div> <!-- /sidebar -->
+	
+		<div class="wrapper" id="wrapper">
+<div class="content thin">
+											        
+			
+		<div id="post-4654" class="single post-4654 post type-post status-publish format-standard has-post-thumbnail hentry category-coding-data-science-analytics tag-bash tag-coding tag-data-science tag-scraping tag-tutorial tag-web-scraping">
+		
+						
+								
+				<div class="featured-media">
+		
+					<img width="973" height="97" src="https://data36.com/wp-content/uploads/2017/10/coding-in-data-science-and-analytics-973x97.png" class="attachment-post-image size-post-image wp-post-image" alt="coding in data science and analytics" srcset="https://data36.com/wp-content/uploads/2017/10/coding-in-data-science-and-analytics-973x97.png 973w, https://data36.com/wp-content/uploads/2017/10/coding-in-data-science-and-analytics-300x30.png 300w, https://data36.com/wp-content/uploads/2017/10/coding-in-data-science-and-analytics-768x77.png 768w, https://data36.com/wp-content/uploads/2017/10/coding-in-data-science-and-analytics-1024x102.png 1024w, https://data36.com/wp-content/uploads/2017/10/coding-in-data-science-and-analytics-508x51.png 508w, https://data36.com/wp-content/uploads/2017/10/coding-in-data-science-and-analytics-e1581427214427.png 2000w" sizes="(max-width: 973px) 100vw, 973px" />					
+				</div> <!-- /featured-media -->
+					
+						
+			<div class="post-inner">
+				
+				<div class="post-header">
+													
+					<h1 class="entry-title">Web Scraping Tutorial &#8212; episode #1 &#8212; Scraping a Webpage (with Bash)</h1>															
+				</div>
+
+<span class="vcard author post-author">Written by <span class="fn">Tomi Mester </span>on January 28, 2020</span>
+
+<span>
+<p class="last-updated">Last updated on February 06, 2020</p>
+				</span>
+
+
+ <!-- /post-header -->
+
+
+
+				    
+			    <div class="post-content">
+			    
+			    	
+<p>Running hobby projects is the best way to practice data science before getting your first job. And one of the best ways to get real data for a hobby project is: <strong>web scraping</strong>.</p>
+
+
+
+<p>I&#8217;ve been promising this for a long time to <a href="https://data36.com/jds" data-wpel-link="internal">my course participants</a> &#8211; so here it is: my web scraping tutorial series for aspiring data scientists!&nbsp;</p>
+
+
+
+<p>I&#8217;ll show you step by step how you can:</p>
+
+
+
+<ol><li>scrape a public html webpage</li><li>extract the data from it</li><li>write a script that automatically scrapes <em>thousands</em> of public html webpages on a website</li><li>create useful (and fun) analyses from the data you get</li><li>analyze a huge amount of text</li><li>analyze website metadata</li></ol>
+
+
+
+<p>This is episode #1, where we will focus on step #1 (scraping a public html webpage). And in the upcoming episodes we will continue with step #2, #3, #4, #5 and #6 (scaling this up to thousands of webpages, extracting the data from them and analyzing the data we get).</p>
+
+
+
+<p>Even more, I&#8217;ll show you the whole process in two different data languages, too, so you will see the full scope. In this article, I will start with the simpler one: <strong>bash</strong>. And in future articles, I&#8217;ll show you how to do similar things in <strong>Python</strong>, as well.</p>
+
+
+
+<p>So buckle up! Web scraping tutorial episode #1 &#8212; here we go!</p>
+
+
+
+<h2><strong>Before we start&#8230;</strong></h2>
+
+
+
+<p>This is a hands-on tutorial. I highly recommend doing the coding part with me (and doing the exercises at the end of the articles).</p>
+
+
+
+<p>I presume that you have some bash coding knowledge already &#8212; and that you have your own data server set up already. If not, please go through these tutorials first:</p>
+
+
+
+<ol><li><a href="https://data36.com/data-coding-101-install-python-sql-r-bash/" data-wpel-link="internal">How to install Python, R, SQL and bash to practice data science!</a></li><li><a href="https://data36.com/data-coding-101-introduction-bash/" data-wpel-link="internal">Introduction to Bash episode #1</a></li><li><a href="https://data36.com/bash-intro-2-data-coding-101/" data-wpel-link="internal">Introduction to Bash episode #2</a></li><li><a href="https://data36.com/command-line-data-awk-sed-join-date/" data-wpel-link="internal">Introduction to Bash episode #6</a></li></ol>
+
+
+<span style="display:none" class="tl-placeholder-f-type-shortcode_4225"></span>
+
+
+
+<h2><strong>The project: scraping TED.com and analyze talks</strong></h2>
+
+
+
+<p>When you run a <a href="https://data36.com/data-science-projects-for-boosting-your-resume/" data-wpel-link="internal">data science hobby project</a>, you should always pick a topic that you are passionate about.</p>
+
+
+
+<p>As for me: I love public speaking.</p>
+
+
+
+<p>I like to practice it myself and I like to listen to others… So watching TED presentations is also a hobby for me. Thus I&#8217;ll go ahead and analyze TED presentations in this tutorial.&nbsp;</p>
+
+
+
+<p>Luckily, almost if not all TED presentations are already available online.</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="503" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-talks-2-1024x503.png" alt="web scraping tutorial - ted talks" class="wp-image-4657" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-talks-2-1024x503.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-talks-2-300x147.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-talks-2-768x377.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-talks-2-973x478.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-talks-2-508x249.png 508w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>&#8230;<br>Even more, their transcripts are available, too!<br>&#8230;</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="549" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-transcript-2-1024x549.png" alt="web scraping tutorial - ted transcript 2" class="wp-image-4667" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-transcript-2-1024x549.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-transcript-2-300x161.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-transcript-2-768x412.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-transcript-2-973x521.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-transcript-2-508x272.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-ted-transcript-2.png 1702w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>(Thank you TED!)</p>
+
+
+
+<p>So we&#8217;ll &#8220;just&#8221; have to write a bash script that collects all those transcripts for us and we can start our in-depth text analysis.</p>
+
+
+
+<p><em>Note 1: I picked scraping TED.com just for the sake of example. If you are passionate about something else, after finishing these tutorial articles, try to find a web scraping project that resonates with you! Are you into finance? Try to scrape stock market news! Are you into real estate? Then scrape real estate websites! Are you a movie person? Your target could be imdb.com (or something similar)!</em></p>
+
+
+
+<h2><strong>Login to your remote server!</strong></h2>
+
+
+
+<p>Okay, so one more time: for this tutorial, you&#8217;ll need <a href="https://data36.com/data-coding-101-install-python-sql-r-bash/" data-wpel-link="internal">a remote server</a>. If you haven&#8217;t set one up yet, now is the time! 🙂&nbsp;</p>
+
+
+
+<p><em>Note: If &#8212; for some reason &#8212; you don&#8217;t like my server setup, you can use a different environment. But I strongly advise against it. Using the exact same tools that I use will guarantee that everything you read here will work on your end, too. So one last time: use <a href="https://data36.com/data-coding-101-install-python-sql-r-bash/" data-wpel-link="internal">this remote server setup</a> for this tutorial.</em></p>
+
+
+
+<p>Okay, let&#8217;s say that you have your server. Great!<br>Now open Terminal (or Putty) and log in with your username and IP address.</p>
+
+
+
+<p>If everything&#8217;s right, you should see the command line… Something like this:</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="426" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-1-login-terminal-1024x426.png" alt="web scraping tutorial 1 - login terminal" class="wp-image-4660" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-1-login-terminal-1024x426.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-1-login-terminal-300x125.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-1-login-terminal-768x320.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-1-login-terminal-973x405.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-1-login-terminal-508x211.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-1-login-terminal.png 1456w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2><strong>Introducing your new favorite command line tool: curl</strong></h2>
+
+
+
+<p>Interestingly enough, in this whole web scraping tutorial, you will have to learn only <em>one</em> new bash command. And that&#8217;s <code>curl</code>.</p>
+
+
+
+<p><code>curl</code> is a great tool to access a website&#8217;s whole html code from the command line. <em>(It&#8217;s good for many other server-to-server data transfer processes &#8212; but we won&#8217;t go there for now.)</em></p>
+
+
+
+<p>Let&#8217;s try it out right away!</p>
+
+
+
+<p><code>curl https://www.ted.com/</code></p>
+
+
+
+<p>The result is:</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="654" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-1024x654.png" alt="web scraping tutorial 2 - curl" class="wp-image-4661" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-1024x654.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-300x192.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-768x491.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-973x622.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-508x325.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl.png 1446w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Oh boy… What&#8217;s this mess??</p>
+
+
+
+<p>It&#8217;s the full html code of TED.com &#8212; and soon enough, I&#8217;ll explain how to turn this into something more meaningful. But before that, something important.</p>
+
+
+
+<p>As you can see, to get the data you want, you&#8217;ll have to use that exact URL where the website content is located &#8212; and the full version of it. So, for instance this short form won&#8217;t work:</p>
+
+
+
+<p><code>curl ted.com</code></p>
+
+
+
+<p>It just doesn&#8217;t return anything:</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="213" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-full-url-1024x213.png" alt="web scraping tutorial 2 - curl full url" class="wp-image-4662" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-full-url-1024x213.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-full-url-300x62.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-full-url-768x160.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-full-url-973x202.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-full-url-508x106.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-2-curl-full-url.png 1452w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>And you&#8217;ll get similar empty results for these:</p>
+
+
+
+<p><code>curl www.ted.com</code></p>
+
+
+
+<p><code>curl http://www.ted.com</code></p>
+
+
+
+<p>Even when you define the <code>https</code> protocol properly but you miss the <code>www</code> part, you&#8217;ll get a short error message that your website content <em>&#8220;has been moved&#8221;</em>:</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="290" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-3-301-moved-permanently-1024x290.png" alt="web scraping tutorial 3 - 301 moved permanently" class="wp-image-4663" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-3-301-moved-permanently-1024x290.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-3-301-moved-permanently-300x85.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-3-301-moved-permanently-768x218.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-3-301-moved-permanently-973x276.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-3-301-moved-permanently-508x144.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-3-301-moved-permanently.png 1454w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>curl, 301 Moved Permanently</em></figcaption></figure>
+
+
+
+<p>So make sure that you type the full URL and you use the one where the website is actually located. This, of course, differs from website to website. Some use the <code>www</code> prefix, some don&#8217;t. Some still operate under the <code>http</code> protocol &#8212; most (luckily) use <code>https</code>.</p>
+
+
+
+<p>A good trick to find the URL you need is to open the website in your browser &#8212; and then simply copy-paste the full URL from there into your Terminal window:</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="263" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-4-copy-paste-full-url-1024x263.png" alt="web scraping tutorial 4 - copy paste full url" class="wp-image-4664" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-4-copy-paste-full-url-1024x263.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-4-copy-paste-full-url-300x77.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-4-copy-paste-full-url-768x197.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-4-copy-paste-full-url-973x250.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-4-copy-paste-full-url-508x131.png 508w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>So in TED&#8217;s case, it will be this:</p>
+
+
+
+<p><code>curl https://www.ted.com</code></p>
+
+
+
+<p>But, as I said, I don&#8217;t want to scrape the TED.com home page.</p>
+
+
+
+<p>I want to scrape the transcripts of the talks. So let&#8217;s see how to do that!</p>
+
+
+
+<h2><strong>curl in action: downloading one TED talk&#8217;s transcript</strong></h2>
+
+
+
+<p>Obviously, the first step in a web scraping project is always to find the right URL for the webpage that you want to download, extract and analyze.</p>
+
+
+
+<p>For now, let&#8217;s start with one single TED talk. (Then in the next episode of this tutorial, we&#8217;ll scale this up to all 3,300 talks.)</p>
+
+
+
+<p>For prototyping my script, I chose the most viewed speech &#8212; which is Sir Ken Robinson&#8217;s &#8220;Do schools kill creativity.&#8221; <em>(Excellent talk, by the way, I highly recommend watching it!)</em></p>
+
+
+
+<p>The transcript itself is found under this URL:</p>
+
+
+
+<pre class="wp-block-preformatted">https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity/transcript</pre>
+
+
+
+<p>So you&#8217;ll have to copy-paste this to the command line &#8212; right after the <code>curl</code> command:</p>
+
+
+
+<pre class="wp-block-preformatted">curl https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity/transcript</pre>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="651" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-5-scraping-the-transcript-1024x651.png" alt="web scraping tutorial 5 -- scraping the transcript" class="wp-image-4669" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-5-scraping-the-transcript-1024x651.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-5-scraping-the-transcript-300x191.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-5-scraping-the-transcript-768x488.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-5-scraping-the-transcript-973x619.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-5-scraping-the-transcript-508x323.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-5-scraping-the-transcript.png 1450w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Great!<br>We got our messy html code again &#8212; but this actually means that we are one step closer.</p>
+
+
+
+<p>If you scroll up a bit in your Terminal window, you&#8217;ll recognize parts of the speech there:</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="639" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-6-scraping-the-transcript-1024x639.png" alt="web scraping tutorial 6 - scraping the transcript" class="wp-image-4670" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-6-scraping-the-transcript-1024x639.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-6-scraping-the-transcript-300x187.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-6-scraping-the-transcript-768x480.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-6-scraping-the-transcript-973x608.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-6-scraping-the-transcript-508x317.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-6-scraping-the-transcript.png 1406w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>This is not (yet) the most data-analysis-friendly format but we will clean this out very quickly.</p>
+
+
+
+<h2><strong>Your other favorite web scraping command line tool: html2text</strong></h2>
+
+
+
+<p>Remember that I said that you&#8217;ll have to learn only one new bash command in this web scraping tutorial? Well, strictly speaking that was true because this other command is not a must… But it will make your life so much easier. So let&#8217;s just get a grasp on this one as well!</p>
+
+
+
+<p>It&#8217;s called <code>html2text</code> and it&#8217;s designed to clean your data of html codes and return only the useful content (the text we want to analyze) to your screen.</p>
+
+
+
+<p>Unfortunately, <code>html2text</code> is not part of your current server setup (it&#8217;s not a built-in tool), so before you use it for the first time, you&#8217;ll have to install it. (No big deal though. It takes like 10 seconds.)</p>
+
+
+
+<p>Type this to your command line:</p>
+
+
+
+<p><code>sudo apt-get install html2text</code></p>
+
+
+
+<p>It will ask for your password (type it!) and then it will quickly install the <code>html2text</code> tool to your server.</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="599" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-7-installing-html2text-1024x599.png" alt="web scraping tutorial 7 - installing html2text" class="wp-image-4671" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-7-installing-html2text-1024x599.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-7-installing-html2text-300x176.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-7-installing-html2text-768x449.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-7-installing-html2text-973x569.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-7-installing-html2text-508x297.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-7-installing-html2text.png 1654w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><em>installing html2text</em></figcaption></figure>
+
+
+
+<p>Nice! Let&#8217;s see it in action!</p>
+
+
+
+<h2><strong>Cleaning the data of the .html file</strong></h2>
+
+
+
+<p>Rerun your previous <code>curl</code> command &#8212; but this time let&#8217;s put the <code>html2text</code> command with a pipe (<code>|</code>) after it, too.</p>
+
+
+
+<p>Type this:</p>
+
+
+
+<pre class="wp-block-preformatted">curl https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity/transcript<strong> | html2text</strong></pre>
+
+
+
+<p>You get your result returned to your screen.</p>
+
+
+
+<p>Scroll up a bit and you&#8217;ll see this:</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="604" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-8-cleaning-the-data-1024x604.png" alt="web scraping tutorial 8 - cleaning the data" class="wp-image-4675" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-8-cleaning-the-data-1024x604.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-8-cleaning-the-data-300x177.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-8-cleaning-the-data-768x453.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-8-cleaning-the-data-973x574.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-8-cleaning-the-data-508x300.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-8-cleaning-the-data.png 1650w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Isn&#8217;t it lovely?</p>
+
+
+
+<p>The whole transcript of Sir Ken&#8217;s TED talk &#8212; only in your Terminal window, ready for analysis! (You can double-check it and collate it to what you see on the original website.)</p>
+
+
+
+<p>Well, <em>almost</em> ready for analysis.</p>
+
+
+
+<p>Actually, if you scroll through the whole data that you have downloaded, you&#8217;ll still see some text-snippets that you won&#8217;t need.</p>
+
+
+
+<p>For example, before the transcript you&#8217;ll see this:</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="712" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-after-the-article-1024x712.png" alt="web scraping tutorial 9 - cleaning the data after the article" class="wp-image-4676" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-after-the-article-1024x712.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-after-the-article-300x209.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-after-the-article-768x534.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-after-the-article-973x677.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-after-the-article-508x353.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-after-the-article.png 1852w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>And after the transcript, you&#8217;ll see this:</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="587" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-before-the-article-1024x587.png" alt="web scraping tutorial 9 - cleaning the data before the article" class="wp-image-4677" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-before-the-article-1024x587.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-before-the-article-300x172.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-before-the-article-768x440.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-before-the-article-973x557.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-before-the-article-508x291.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-9-cleaning-the-data-before-the-article.png 1854w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>See, when you scrape a website, you scrape its entire contents. This time the texts of the top menu, the footer menu and side menu got included, too. You won&#8217;t need them, so the next step will be to get rid of them.</p>
+
+
+
+<h2><strong>Removing the unnecessary parts of the data (by using the sed command)</strong></h2>
+
+
+
+<p>We&#8217;ll try to find a pattern that&#8217;s similar for every single transcript webpage on TED.com and that clearly borders where the useful part of our content (the actual transcript of the talk) starts and ends.</p>
+
+
+
+<p>It&#8217;s time for data discovery!<br>Let&#8217;s download a few more talks, compare them and figure out what these patterns could be:</p>
+
+
+
+<pre class="wp-block-preformatted">curl https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity/transcript | html2text</pre>
+
+
+
+<pre class="wp-block-preformatted">curl https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are/transcript | html2text</pre>
+
+
+
+<pre class="wp-block-preformatted">curl https://www.ted.com/talks/james_veitch_this_is_what_happens_when_you_reply_to_spam_email/transcript | html2text</pre>
+
+
+
+<p>Lucky for us, it is pretty clear and straightforward:</p>
+
+
+
+<p>We will have to remove everything <em>before</em> the <code>Details About the talk</code> line because that&#8217;s where the transcripts start.</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="632" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern1-1024x632.png" alt="web scraping tutorial 11 - sed pattern1" class="wp-image-4680" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern1-1024x632.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern1-300x185.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern1-768x474.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern1-973x601.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern1-508x314.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern1.png 1788w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>And we will have to remove everything <em>after</em> the <code>**** Programs &amp;amp. initiatives ****</code> line (including that one as well) as that&#8217;s where the transcript ends.</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="529" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern-2-1024x529.png" alt="web scraping tutorial 11 - sed pattern 2" class="wp-image-4679" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern-2-1024x529.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern-2-300x155.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern-2-768x397.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern-2-973x503.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern-2-508x263.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-11-sed-pattern-2.png 1792w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>In <a href="https://data36.com/command-line-data-awk-sed-join-date/" data-wpel-link="internal">one of my previous bash tutorials</a>, I have already written about a great command line tool: <code>sed</code>.</p>
+
+
+
+<p>For these tasks, <code>sed</code> will become handy for us again!</p>
+
+
+
+<p>To remove all the lines <em>before</em> a given line in a file, you&#8217;ll have to use this code:</p>
+
+
+
+<p><code>sed -n '/[the pattern itself]/,$p'</code></p>
+
+
+
+<p>And to remove all the lines <em>after</em> a given line in a file, this is the code:</p>
+
+
+
+<p><code>sed -n '/[the pattern itself]/q;p'</code></p>
+
+
+
+<p><em>Note: this one will remove the line with the pattern, too!</em></p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<p><em>Side note:<br>Now, of course, if you don&#8217;t know </em><code><em>sed</em></code><em> inside out, you couldn&#8217;t figure out these code snippets by yourself. But here&#8217;s the thing: you don&#8217;t have to, either!</em></p>
+
+
+
+<p><em>If you build up your data science knowledge by practicing, it&#8217;s okay to use Google and <a href="https://stackoverflow.com/" data-wpel-link="external" target="_blank" rel="external noopener noreferrer">Stackoverflow</a> and find answers to your questions online. Well, it&#8217;s not just okay, you have to do so!</em></p>
+
+
+
+<p><em>E.g. if you don&#8217;t know how to remove lines after a given line in bash, type this into Google:</em></p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="158" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-12-googling-the-answer-1024x158.png" alt="web scraping tutorial 12 - googling the answer" class="wp-image-4681" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-12-googling-the-answer-1024x158.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-12-googling-the-answer-300x46.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-12-googling-the-answer-768x119.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-12-googling-the-answer-973x150.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-12-googling-the-answer-508x78.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-12-googling-the-answer.png 1580w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p><em>The first result brings you to Stackoverflow &#8212; where right in <a href="https://unix.stackexchange.com/questions/257082/remove-all-the-lines-before-the-first-line-that-contains-a-match" data-wpel-link="external" target="_blank" rel="external noopener noreferrer">the first answer</a>&nbsp;there are three(!) alternative solutions for the problem:</em></p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="473" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-13-stackoverflow-1024x473.png" alt="" class="wp-image-4682" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-13-stackoverflow-1024x473.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-13-stackoverflow-300x139.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-13-stackoverflow-768x355.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-13-stackoverflow-973x450.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-13-stackoverflow-508x235.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-13-stackoverflow.png 1514w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p><em>Who says learning data science by self-teaching is hard nowadays?</em></p>
+
+
+
+<p><em>Okay, pep-talk is over, let&#8217;s get back to our web scraping tutorial!</em></p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<p>Let&#8217;s replace the <code>[the pattern itself]</code> parts in your <code>sed</code> commands with the patterns we&#8217;ve found above &#8212; and then add them to your command using pipes.</p>
+
+
+
+<p>Something like this:</p>
+
+
+
+<pre class="wp-block-preformatted">curl https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity/transcript |
+html2text |
+<strong>sed -n '/Details About the talk/,$p' |
+sed -n '/Programs &amp;amp. initiatives/q;p'</strong></pre>
+
+
+
+<p><em>Note 1: I used line breaks in my command&#8230; but only to make my code nicer. Using line breaks is optional in this case.</em></p>
+
+
+
+<p><em>Note 2: In the </em><code><em>Programs &amp;amp. initiatives</em></code><em> line, I didn&#8217;t add the </em><code><em>*</em></code><em> characters to the pattern in </em><code><em>sed</em></code><em> because the line (and the pattern) is fairly unique without them already. If you want to add them, you can. But you&#8217;ll have to know that </em><code><em>*</em></code><em> is a special character in </em><code><em>sed</em></code><em>, so to refer to it as a character in your text, you&#8217;ll have to &#8220;escape&#8221; it with a backslash first. The code would look like this: </em><code><em>sed -n '/\*\*\*\* Programs &amp;amp. initiatives \*\*\*\*/q;p'</em></code><br><em>Again, this won&#8217;t be needed anyway.</em></p>
+
+
+
+<p>Let&#8217;s run the command and check the results!</p>
+
+
+
+<p>If you scroll up, you&#8217;ll see these at the beginning of the returned text (without the annotations, of course):</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="552" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-14-status-bar-3-1-1024x552.png" alt="web scraping tutorial 14 - status bar 3" class="wp-image-4698" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-14-status-bar-3-1-1024x552.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-14-status-bar-3-1-300x162.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-14-status-bar-3-1-768x414.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-14-status-bar-3-1-973x525.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-14-status-bar-3-1-508x274.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-14-status-bar-3-1.png 1792w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Before you start to worry about all the chaos in the first few lines…</p>
+
+
+
+<ul><li>The part that I annotated with the <em>yellow</em> frame: that&#8217;s your code. (And of course, it&#8217;s not a part of the returned results.)</li><li>The part with the <em>blue</em> frame: that&#8217;s only a &#8220;status bar&#8221; that shows how fast the web scraping process was &#8212; it&#8217;s on your screen but it won&#8217;t be part of the downloaded webpage content, either. (You&#8217;ll see this clearly soon, when we save our results into a file!)</li></ul>
+
+
+
+<p>However, the one with the <em>red frame</em> (<code>Details about the talk</code>) is something that is part of the downloaded webpage content… and you won&#8217;t need it. It&#8217;s just left there, so we will remove it soon.</p>
+
+
+
+<p>But first, scroll back down!</p>
+
+
+
+<p>At the end of the file the situation is cleaner:</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1024" height="553" src="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-19-end-of-file-1-1024x553.png" alt="web scraping tutorial 19 - end of file" class="wp-image-4685" srcset="https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-19-end-of-file-1-1024x553.png 1024w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-19-end-of-file-1-300x162.png 300w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-19-end-of-file-1-768x415.png 768w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-19-end-of-file-1-973x526.png 973w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-19-end-of-file-1-508x274.png 508w, https://data36.com/wp-content/uploads/2020/01/web-scraping-tutorial-19-end-of-file-1.png 1796w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>We only have one unnecessary line left there that says <code>TED</code>.</p>
+
+
+
+<p>So you are almost there&#8230;</p>
+
+
+
+<h2><strong>Removing first and last lines with the head and tail commands</strong></h2>
+
+
+
+<p>And as a final step, remove the first (<code>Details About the talk</code>) and the last (<code>TED</code>) lines of the content you currently see in Terminal! These two lines are not part of the original talk&#8230; and you don&#8217;t want them in your analyses.</p>
+
+
+
+<p>For this little modification, let&#8217;s use the <code>head</code> and <code>tail</code> commands (I wrote about them <a href="https://data36.com/data-coding-101-introduction-bash/" data-wpel-link="internal">here</a>).</p>
+
+
+
+<p>To remove the last line, add this code: <code>head -n-1</code></p>
+
+
+
+<p>And to remove the first line, add this code: <code>tail -n+2</code></p>
+
+
+
+<p>And with that, this will be your final code:&nbsp;</p>
+
+
+
+<pre class="wp-block-preformatted">curl https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity/transcript |
+html2text |
+sed -n '/Details About the talk/,$p' |
+sed -n '/Programs &amp;amp. initiatives/q;p' <strong>|
+head -n-1 |
+tail -n+2</strong></pre>
+
+
+
+<p>You can try it out&#8230;</p>
+
+
+
+<p>But I recommend to save this into a file first, so you will be able to reuse the data you got in the future.</p>
+
+
+
+<pre class="wp-block-preformatted">curl https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity/transcript |
+html2text |
+sed -n '/Details About the talk/,$p' |
+sed -n '/Programs &amp;amp. initiatives/q;p' |
+head -n-1 |
+tail -n+2 <strong> &gt;&nbsp;proto_text.csv</strong></pre>
+
+
+
+<p>If you print this freshly created <code>proto_text.csv</code> file to your screen, you&#8217;ll see that you have beautifully downloaded, cleaned and stored the transcript of Sir Ken Robinson&#8217;s TED talk:</p>
+
+
+
+<p><code>cat proto_text.csv</code></p>
+
+
+
+<p><strong>And with that you’ve finished the first episode of this web scraping tutorial!</strong></p>
+
+
+
+<p>Nice!</p>
+
+
+
+<h2><strong>Exercise &#8211; your own web scraping mini-project</strong></h2>
+
+
+
+<p>Now that you have seen how a simple web scraping task is done, I encourage you to try this out yourself.</p>
+
+
+
+<p>Pick a simple public .html webpage from the internet &#8212; anything that interests you &#8212; and do the same steps that we have done above:</p>
+
+
+
+<ol><li><strong>Download the .html site with </strong><code><strong>curl</strong></code><strong>!</strong></li><li><strong>Extract the text with </strong><code><strong>html2text</strong></code><strong>!</strong></li><li><strong>Clean the data with </strong><code><strong>sed</strong></code><strong>, </strong><code><strong>head</strong></code><strong>, </strong><code><strong>tail</strong></code><strong>, </strong><code><strong>grep</strong></code><strong> or anything else you need!</strong></li></ol>
+
+
+
+<p>The third step could be especially challenging. There are many, many types of data cleaning issues&#8230; But hey, after all, this is what a data science hobby project is for: solving problems and challenges! So go for it, pick a webpage and scrape it! 😉 And if you get stuck, don&#8217;t be afraid to go to Google or Stackoverflow for help!</p>
+
+
+
+<p><em>Note 1: Some big (or often-scraped) webpages block web scraping scripts. If so, you&#8217;ll get a &#8220;403 Forbidden&#8221; message returned to your </em><code><em>curl</em></code><em> command. Please consider it as a &#8220;polite&#8221; request from those websites and try not to find a way around to scrape their website anyway. They don&#8217;t want it &#8212; so just go ahead and find another project.</em></p>
+
+
+
+<p><em>Note 2: Also consider the legal aspect of web scraping. Generally speaking, if you use your script strictly for a hobby project, this probably won&#8217;t be an issue at all. (This is not official legal advice though.) But if it becomes more serious, just in case, to stay on the safe side, consult a lawyer, too!&nbsp;</em></p>
+
+
+
+<h2><strong>Web Scraping Tutorial &#8211; summary and the next steps</strong></h2>
+
+
+
+<p>Scraping one webpage (or TED talk) is nice&#8230;</p>
+
+
+
+<p>But boring! 😉</p>
+
+
+
+<p>So in the next episode of this web scraping tutorial series, I&#8217;ll show you how to scale this up! <strong>You will write a bash script that &#8211; instead of one single talk &#8211; will scrape all 3,000+ talks on TED.com.</strong> Let&#8217;s continue here: <a href="https://data36.com/scraping-multiple-web-pages-urls-with-for-loops/" data-wpel-link="internal">web scraping tutorial, episode #2</a>.</p>
+
+
+
+<p>And in the later episodes, we will focus on analyzing the huge amount of text we collected. It&#8217;s going to be fun! So stay with me!</p>
+
+
+
+<ul><li>If you want to learn more about how to become a data scientist, take my 50-minute video course: <a href="https://data36.com/how-to-become-a-data-scientist/" data-wpel-link="internal">How to Become a Data Scientist.</a> (It&#8217;s free!)</li><li>Also check out my 6-week online course: <a href="https://data36.com/jds/" data-wpel-link="internal">The Junior Data Scientist’s First Month video course.</a></li></ul>
+
+
+
+<p><em>Cheers,</em><br><strong><em>Tomi Mester</em></strong></p>
+			    
+			    </div> <!-- /post-content -->
+			    
+			    <div class="clear"></div>
+				
+				<div class="post-meta-bottom">
+				
+									
+					<ul>
+						<li class="post-date updated"><a href="https://data36.com/web-scraping-tutorial-episode-1-scraping-a-webpage-with-bash/" data-wpel-link="internal">January 28, 2020</a></li>
+													<li class="post-categories">In <a href="https://data36.com/category/coding-data-science-analytics/" rel="category tag" data-wpel-link="internal">Coding In Data Science and Analytics</a></li>
+																			<li class="post-tags"><a href="https://data36.com/tag/bash/" rel="tag" data-wpel-link="internal">bash</a> <a href="https://data36.com/tag/coding/" rel="tag" data-wpel-link="internal">coding</a> <a href="https://data36.com/tag/data-science/" rel="tag" data-wpel-link="internal">data science</a> <a href="https://data36.com/tag/scraping/" rel="tag" data-wpel-link="internal">scraping</a> <a href="https://data36.com/tag/tutorial/" rel="tag" data-wpel-link="internal">tutorial</a> <a href="https://data36.com/tag/web-scraping/" rel="tag" data-wpel-link="internal">web scraping</a></li>
+																	</ul>
+					
+					<div class="clear"></div>
+					
+				</div> <!-- /post-meta-bottom -->
+			
+			</div> <!-- /post-inner -->
+			
+						
+			<div class="post-navigation">
+			
+								
+					<a class="post-nav-prev" title="Previous post: What&#8217;s the best computer/laptop for a data scientist?" href="https://data36.com/best-computer-laptop-for-a-data-scientist/" data-wpel-link="internal">
+						<p>&larr; Previous post</p>
+					</a>
+								
+									
+					<a class="post-nav-next" title="Next post: Scraping Multiple Web Pages with For Loops (in bash) &#8212; Web Scraping Tutorial ep#2" href="https://data36.com/scraping-multiple-web-pages-urls-with-for-loops/" data-wpel-link="internal">					
+						<p>Next post &rarr;</p>
+					</a>
+			
+								
+				<div class="clear"></div>
+			
+			</div> <!-- /post-navigation -->
+								
+			<!-- Required values for loading comments via ajax -->
+<input type="hidden" name="llc_ajax_url" id="llc_ajax_url" value="https://data36.com/wp-admin/admin-ajax.php"/>
+<input type="hidden" name="llc_post_id" id="llc_post_id" value="4654"/>
+<div id="llc_comments">
+	<div style="text-align: center;">
+		<div id="llc-comments-loader" style="display: none;">
+			<!-- Filter to disable loader element if not needed -->
+							<!-- Filter to change loader element -->
+				<img src="data:image/gif;base64,R0lGODlhNgA3APMJAMfHx6KiopycnO7u7rm5ufDw8Obm5rS0tM7Ozv///wAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAJACwAAAAANgA3AAAEwDDJSau9OOvNu/9gKI5kaZ6lcQjCYaAnws4CApMGTb93uOqsQy8EpA1Bxdnx8wMKl51ckXccEIIDjExnWw4CuuxFhc0AwIDRVUcwnWdpYtEENsqBdJ1oTWuX3ixxIAV1MwUxaDhrBIdQjo+QkZKTlJWWHG+CjpkagDWPnpoVhSyPpAEZp6Z6Wn2grmaJkJyXtba3uLm6u5O0iAGiH6G/gSOqeXZ3SsjLIcNusHuyv8G8kb65z7nH26zZ0d/A1uNHEQAh+QQJCgAJACwHAAYALQAvAAAEsjDJSWsdRAgyrP/gNwRa2YVoOmWlRqhw2LZxbc2lrUts++62AqlV8BgOLgPwwuJ4EDhECEACLBMGnEb59C2R2sNnmANqy7fZ8qz5UEtWIBgndlevWS33moLOpHwwR0mBhYaHiImKiyhvcYwJjpFejG8uZG2MmJsBkJuWG5CgVpKQkwGPpqqrrK2ur7A7pXyzdnC0lGNqV5syu2u/XbdXo413gbWxhsmqxa29z8HNuazMMBEAIfkECQoACQAsBwAHAC8ALgAABLAwyUmrBSEAy7v/EiaMG2ieVDaOaGuqqyt3IjnflVji/DkQpMFJ10sMYCPhpybY3YAr2wcZ6EWjIKr1ylpGnTPo10TsFaiFoqwAJaTV8Lh8Tq/bfYfRwXCncREhGWByBlxJTINweYaLWHWGkFWPkYh2jVcHCWV1hYZ8fRQIf6AWBot7pKmqq6ytYYJwm14riS6VWVdFWriOPLuzUjy3ILLCsK6gxarDq7/Nua3Mq8ouEQAh+QQJCgAJACwHAAcALgAuAAAErjDJSasFIQDLu/8JJowbaJ5TNo5oC6qrK3MiOd+UWOJ83+k+CRBUE+xwxSMHxuoxA69Vk/ckSpWzpGno4wa/4LB4TC6bz+gBgTQQZrDhwVN9Na+lxmoZz4/t+1pld3VeYwVzaBUFdwQFiY+QkZJpByMHBpIIfAhWGj0GfQKYP3U4lX0HHno3oVMWqzOtAh6BN6d8qbRvn6GjiZp4nF+FFAanl2C1kLCPzL+lmbs4EQAh+QQJCgAJACwHAAcALQAwAAAEsTDJSasFIQDLu/+YIG5faVaZKJ6smapt3IWjbFchee+8l/eTH0gl0O1oxc9r1VsGlMRnMzpUGW/I6yWjxXKB4LB4TC6bz+g0S5j+ZdtEJPPsdKadb/Sbrf+q/4CBgoOEhRQDBCMDJXw3A06LM3E9iVEEHnY8UTAdmTubc1tWlJuXPn4dBgciBwYcBZBACJsIr5UEBUAGoAKuaqugB3+8oXTEf8Clf7ugvmqzloKqrM4xEQAh+QQJCgAJACwHAAcALQAvAAAErjDJSasFIQDLu/+YIG5faVaZKJ6smapt3IWjbFchee+8l/eTH0gl0O1oxc9r1VsGlMRnMzpUGW/I6yWjxXKB4LB4TC6bz+g0S5j+ZdtEJPPsdKadb/Sbrf+q/4CBgoMlBgciBwaCCFFJfwaNIoo8fBWHkQeUcR2RMDt2HJ1zNqAWl42ZR5sckJGTqhpVqxYDBIgDYIa3HQNOuIC2UQSBncSRgcGzagW+ggXBBAU3EQAh+QQJCgAJACwFAAcALwAuAAAErTDJSauVIARwu/9dJowcaJ6UNo5oa6qrK4erUM74JN5573u7H0bDA9aKMxHpVQv8YCwQ1OmbmpS2HxZ5CQq9wrB4TC6bzz3DYXQwoGlNxLtiaK7c5+DaLjjkj3wxZlOBUWVTe3Z+Zlt1fHiMRENxcxZqbJCVmpucnZ6WBJieA1MDWpIgoU0EPltSfFVNr3axNamKrUcgBaWnGycFqgQFny5gna6eVsqynsnOqDMRACH5BAUKAAkALAYABwAuAC4AAASyMMlJq00gBHC7/1cmjBxonpM2jmgLqqsrh6tQzpVxjIfxiTfcBFEjCWWG4sp3BH52SsGhWQtWojEhjNXBcnHbgAeqnApFxk4yyjxrrBZiEXGc6Xjtun7P7/v/gCYDBHiBHgNhA4YSToRFBItoNliLYZSGYY5VkVUFiYsYbxIFjgQFoKipqqusra6BTnuxP5t1knBXRXphL7p1vLQruC63JrO2oq+cG6/FrcCs0KvOrccuEQA7">					</div>
+		<!-- Show comments button if "On Click" option is set -->
+			</div>
+</div>		
+		</div> <!-- /post -->
+									                        
+   	    
+
+</div> <!-- /content -->
+		
+</div> <!-- /wrapper -->
+
+<div id="pum-3860" class="pum pum-overlay pum-theme-3812 pum-theme-3812 popmake-overlay pum-overlay-disabled pum-click-to-close auto_open click_open" data-popmake="{&quot;id&quot;:3860,&quot;slug&quot;:&quot;jds-popup&quot;,&quot;theme_id&quot;:3812,&quot;cookies&quot;:[{&quot;event&quot;:&quot;on_popup_close&quot;,&quot;settings&quot;:{&quot;name&quot;:&quot;jds-close&quot;,&quot;key&quot;:&quot;&quot;,&quot;session&quot;:false,&quot;time&quot;:&quot;1 month&quot;,&quot;path&quot;:true}}],&quot;triggers&quot;:[{&quot;type&quot;:&quot;auto_open&quot;,&quot;settings&quot;:{&quot;cookie_name&quot;:[&quot;jds-close&quot;],&quot;delay&quot;:&quot;50000&quot;}},{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:true,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:&quot;1&quot;,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;medium&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;300px&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;640px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:&quot;right bottom&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;20&quot;,&quot;position_right&quot;:&quot;20&quot;,&quot;position_fixed&quot;:&quot;1&quot;,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;center top&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:&quot;1&quot;,&quot;esc_press&quot;:&quot;1&quot;,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}" role="dialog" aria-hidden="true" >
+
+	<div id="popmake-3860" class="pum-container popmake theme-3812 pum-responsive pum-responsive-medium responsive size-medium pum-position-fixed">
+
+				
+
+				
+
+		
+
+				<div class="pum-content popmake-content">
+			<p><img loading="lazy" class="wp-image-3861 size-large aligncenter" style="border: 0px;" src="https://data36.com/wp-content/uploads/2019/05/jds-popup-1024x515.png" alt="jds popup" width="100%" height="auto" srcset="https://data36.com/wp-content/uploads/2019/05/jds-popup-1024x515.png 1024w, https://data36.com/wp-content/uploads/2019/05/jds-popup-300x151.png 300w, https://data36.com/wp-content/uploads/2019/05/jds-popup-768x386.png 768w, https://data36.com/wp-content/uploads/2019/05/jds-popup-1080x543.png 1080w, https://data36.com/wp-content/uploads/2019/05/jds-popup-973x489.png 973w, https://data36.com/wp-content/uploads/2019/05/jds-popup-508x255.png 508w, https://data36.com/wp-content/uploads/2019/05/jds-popup.png 1854w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<p style="text-align: center; font-size: 1.2em; margin-bottom: 0.6em; margin-top: 0.6em; line-height: 1.2em;">100% practical online course.<br />
+A 6-week simulation of being a Junior Data Scientist at a true-to-life startup.</p>
+<p>&nbsp;</p>
+<p><a id="popup-jds" style="margin: 0 0 0 0; width: 100%; text-decoration: none; padding: 0px 0px 20px 10px; font-size: 1.4em; color: white; background-color: #15905a !important; text-align: center; display: block;" href="https://data36.com/jds/" data-wpel-link="internal"><br />
+More info&#8230;<br />
+</a></p>
+<p>&nbsp;</p>
+		</div>
+
+
+				
+
+				            <button type="button" class="pum-close popmake-close" aria-label="Close">
+			X            </button>
+		
+	</div>
+
+</div>
+<script type="text/javascript">!function(t,e){"use strict";function n(){if(!a){a=!0;for(var t=0;t<d.length;t++)d[t].fn.call(window,d[t].ctx);d=[]}}function o(){"complete"===document.readyState&&n()}t=t||"docReady",e=e||window;var d=[],a=!1,c=!1;e[t]=function(t,e){return a?void setTimeout(function(){t(e)},1):(d.push({fn:t,ctx:e}),void("complete"===document.readyState||!document.attachEvent&&"interactive"===document.readyState?setTimeout(n,1):c||(document.addEventListener?(document.addEventListener("DOMContentLoaded",n,!1),window.addEventListener("load",n,!1)):(document.attachEvent("onreadystatechange",o),window.attachEvent("onload",n)),c=!0)))}}("wpBruiserDocReady",window);
+			(function(){var wpbrLoader = (function(){var g=document,b=g.createElement('script'),c=g.scripts[0];b.async=1;b.src='https://data36.com/?gdbc-client=3.1.42-'+(new Date()).getTime();c.parentNode.insertBefore(b,c);});wpBruiserDocReady(wpbrLoader);window.onunload=function(){};window.addEventListener('pageshow',function(event){if(event.persisted){(typeof window.WPBruiserClient==='undefined')?wpbrLoader():window.WPBruiserClient.requestTokens();}},false);})();
+</script><link data-optimized="1" rel='stylesheet' id='tve_style_family_tve_flt-css'  href='https://data36.com/wp-content/litespeed/cssjs/065a2.css?56918' type='text/css' media='all' />
+<link data-optimized="1" rel='stylesheet' id='tve_leads_forms-css'  href='https://data36.com/wp-content/litespeed/cssjs/ad3e7.css?c5f1f' type='text/css' media='all' />
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/ddaa0.js?625cd' id='comment-reply-js'></script>
+<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/data36.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/cd78a.js?dd722' id='contact-form-7-js'></script>
+<script type='text/javascript' id='cookie-notice-front-js-extra'>
+/* <![CDATA[ */
+var cnArgs = {"ajaxUrl":"https:\/\/data36.com\/wp-admin\/admin-ajax.php","nonce":"df9d6fc7b9","hideEffect":"none","position":"bottom","onScroll":"0","onScrollOffset":"100","onClick":"0","cookieName":"cookie_notice_accepted","cookieTime":"31536000","cookieTimeRejected":"2592000","cookiePath":"\/","cookieDomain":"","redirection":"0","cache":"1","refuse":"0","revokeCookies":"0","revokeCookiesOpt":"automatic","secure":"1","coronabarActive":"0"};
+/* ]]> */
+</script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/551fe.js?92cfd' id='cookie-notice-front-js'></script>
+<script type='text/javascript' id='page-scroll-to-id-plugin-script-js-extra'>
+/* <![CDATA[ */
+var mPS2id_params = {"instances":{"mPS2id_instance_0":{"selector":"a[rel='m_PageScroll2id']","autoSelectorMenuLinks":"false","excludeSelector":"a[href^='#tab-'], a[href^='#tabs-'], a[data-toggle]:not([data-toggle='tooltip']), a[data-slide], a[data-vc-tabs], a[data-vc-accordion], a.screen-reader-text.skip-link","scrollSpeed":1000,"autoScrollSpeed":"true","scrollEasing":"easeInOutQuint","scrollingEasing":"easeOutQuint","pageEndSmoothScroll":"true","stopScrollOnUserAction":"false","autoCorrectScroll":"false","layout":"vertical","offset":0,"dummyOffset":"false","highlightSelector":"","clickedClass":"mPS2id-clicked","targetClass":"mPS2id-target","highlightClass":"mPS2id-highlight","forceSingleHighlight":"false","keepHighlightUntilNext":"false","highlightByNextTarget":"false","appendHash":"false","scrollToHash":"true","scrollToHashForAll":"true","scrollToHashDelay":0,"scrollToHashUseElementData":"true","scrollToHashRemoveUrlHash":"false","disablePluginBelow":0,"adminDisplayWidgetsId":"true","adminTinyMCEbuttons":"true","unbindUnrelatedClickEvents":"false","normalizeAnchorPointTargets":"false","encodeLinks":"false"}},"total_instances":"1","shortcode_class":"_ps2id"};
+/* ]]> */
+</script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/6be9b.js?450e3' id='page-scroll-to-id-plugin-script-js'></script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/8ff6c.js?65805' id='picturefill-js'></script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/a7269.js?09870' id='imagesloaded-js'></script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/8f02d.js?5c193' id='masonry-js'></script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/e8190.js?5ccf2' id='fukasawa_flexslider-js'></script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/5ce65.js?1112e' id='fukasawa_global-js'></script>
+<script type='text/javascript' id='tve-dash-frontend-js-extra'>
+/* <![CDATA[ */
+var tve_dash_front = {"ajaxurl":"https:\/\/data36.com\/wp-admin\/admin-ajax.php","force_ajax_send":"1","is_crawler":""};
+/* ]]> */
+</script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/d51d0.js?ead5b' id='tve-dash-frontend-js'></script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/64590.js?a0c1e' id='jquery-ui-core-js'></script>
+<script type='text/javascript' id='popup-maker-site-js-extra'>
+/* <![CDATA[ */
+var pum_vars = {"version":"1.11.1","pm_dir_url":"https:\/\/data36.com\/wp-content\/plugins\/popup-maker\/","ajaxurl":"https:\/\/data36.com\/wp-admin\/admin-ajax.php","restapi":"https:\/\/data36.com\/wp-json\/pum\/v1","rest_nonce":null,"default_theme":"2074","debug_mode":"","disable_tracking":"","home_url":"\/","message_position":"top","core_sub_forms_enabled":"1","popups":[]};
+var ajaxurl = "https:\/\/data36.com\/wp-admin\/admin-ajax.php";
+var pum_sub_vars = {"ajaxurl":"https:\/\/data36.com\/wp-admin\/admin-ajax.php","message_position":"top"};
+var pum_popups = {"pum-3860":{"disable_on_mobile":true,"disable_on_tablet":false,"custom_height_auto":false,"scrollable_content":false,"position_from_trigger":false,"position_fixed":true,"overlay_disabled":true,"stackable":false,"disable_reposition":false,"close_on_form_submission":false,"close_on_overlay_click":true,"close_on_esc_press":true,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"triggers":[{"type":"auto_open","settings":{"cookie_name":["jds-close"],"delay":"50000"}}],"cookies":[{"event":"on_popup_close","settings":{"name":"jds-close","key":"","session":false,"time":"1 month","path":true}}],"theme_id":"3812","size":"medium","responsive_min_width":"0%","responsive_max_width":"300px","custom_width":"640px","custom_height":"380px","animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"right bottom","position_top":"100","position_bottom":"20","position_left":"0","position_right":"20","zindex":"1999999999","close_button_delay":"0","close_on_form_submission_delay":"0","theme_slug":"3812","id":3860,"slug":"jds-popup"}};
+/* ]]> */
+</script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/8ec6f.js?51b38' id='popup-maker-site-js'></script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/9da02.js?6f922' id='mobile-detect-js'></script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/0e443.js?a212f' id='jquery-masonry-js'></script>
+<script type='text/javascript' id='tve_frontend-js-extra'>
+/* <![CDATA[ */
+var tve_frontend_options = {"is_editor_page":"","page_events":[],"is_single":"1","ajaxurl":"https:\/\/data36.com\/wp-admin\/admin-ajax.php","social_fb_app_id":"","dash_url":"https:\/\/data36.com\/wp-content\/plugins\/thrive-visual-editor\/thrive-dashboard","translations":{"Copy":"Copy"},"post_id":"4654","ip":"124.169.220.195","current_user":[],"post_title":"Web Scraping Tutorial \u2014 episode #1 \u2014 Scraping a Webpage (with Bash)","post_type":"post","post_url":"https:\/\/data36.com\/web-scraping-tutorial-episode-1-scraping-a-webpage-with-bash\/","is_lp":"","post_request_data":[]};
+/* ]]> */
+</script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/5c3eb.js?24fe3' id='tve_frontend-js'></script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/95b7f.js?511e6' id='tve_leads_frontend-js'></script>
+<script type='text/javascript' id='lazy-load-for-comments-js-extra'>
+/* <![CDATA[ */
+var llcstrings = {"loading_error":"Error occurred while loading comments. Please reload this page."};
+/* ]]> */
+</script>
+<script data-optimized="1" type='text/javascript' src='https://data36.com/wp-content/litespeed/cssjs/af8a4.js?2526f' id='lazy-load-for-comments-js'></script>
+<script type="text/javascript">var tcb_post_lists=JSON.parse('[]');</script><script type="text/javascript">/*<![CDATA[*/if ( !window.TL_Const ) {var TL_Const={"security":"ac4720a8cf","ajax_url":"https:\/\/data36.com\/wp-admin\/admin-ajax.php","forms":[],"action_conversion":"tve_leads_ajax_conversion","action_impression":"tve_leads_ajax_impression","ajax_load":1,"shortcode_ids":["4225"],"custom_post_data":{"http_referrer":"https:\/\/www.bing.com\/"},"current_screen":{"screen_type":4,"screen_id":4654},"ignored_fields":["email","_captcha_size","_captcha_theme","_captcha_type","_submit_option","_use_captcha","g-recaptcha-response","__tcb_lg_fc","__tcb_lg_msg","_state","_form_type","_error_message_option","_back_url","_submit_option","url","_asset_group","_asset_option","mailchimp_optin"]};} else {ThriveGlobal.$j.extend(true, TL_Const, {"security":"ac4720a8cf","ajax_url":"https:\/\/data36.com\/wp-admin\/admin-ajax.php","forms":[],"action_conversion":"tve_leads_ajax_conversion","action_impression":"tve_leads_ajax_impression","ajax_load":1,"shortcode_ids":["4225"],"custom_post_data":{"http_referrer":"https:\/\/www.bing.com\/"},"current_screen":{"screen_type":4,"screen_id":4654},"ignored_fields":["email","_captcha_size","_captcha_theme","_captcha_type","_submit_option","_use_captcha","g-recaptcha-response","__tcb_lg_fc","__tcb_lg_msg","_state","_form_type","_error_message_option","_back_url","_submit_option","url","_asset_group","_asset_option","mailchimp_optin"]})} /*]]> */</script>
+		<!-- Cookie Notice plugin v1.3.2 by Digital Factory https://dfactory.eu/ -->
+		<div id="cookie-notice" role="banner" class="cookie-notice-hidden cookie-revoke-hidden cn-position-bottom" aria-label="Cookie Notice" style="background-color: rgba(22,145,90,1);"><div class="cookie-notice-container" style="color: #fff;"><span id="cn-notice-text" class="cn-text-container">We use cookies to ensure that we give you the best experience on our website.</span><span id="cn-notice-buttons" class="cn-buttons-container"><a href="#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button wp-default button" aria-label="Ok">Ok</a><a href="https://data36.com/privacy-policy/" target="_blank" id="cn-more-info" class="cn-more-info cn-button wp-default button" aria-label="Read more" data-wpel-link="internal">Read more</a></span><a href="javascript:void(0);" id="cn-close-notice" data-cookie-set="accept" class="cn-close-icon" aria-label="Ok" data-wpel-link="internal"></a></div>
+			
+		</div>
+		<!-- / Cookie Notice plugin -->
+</body>
+</html>
+<!-- Page supported by LiteSpeed Cache 3.5.2 on 2022-02-20 02:57:17 -->
+<!-- Dynamic page generated in 0.243 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2022-02-20 02:57:17 -->
+
+<!-- Compression = gzip -->
+<!-- super cache -->
