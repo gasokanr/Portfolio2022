@@ -1,28 +1,31 @@
-#!/bin/bash
+#!/usr/bin/python3
+
+import hashlib
 
 #hidden password hash
 
-passwordHash="8b7df143d91c716ecfa5fc1730022f6b421b05cedee8fd52b1fc65a96030ad52";
+passwordHash = "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
 
-#for each line in the file
+#open the wordlist
 
-for word in $(cat wordlist.txt); do
+with open("wordlist.txt", "r") as wordlist:
 
-    #hash the word
+    #repeat for each word
 
-    wordlistHash=$(echo -n $word | sha256sum | awk '{ print $1; }')
+    for word in wordlist.readlines():
 
-    echo "Trying $word: $wordlistHash"
+        word = word.rstrip()
 
-    #if the hash is the same as the correct password's hash then we have cracked the password!
+        #hash the word
 
-    if [ $wordlistHash = $passwordHash ]; then
+        wordlistHash = hashlib.sha256(word.encode("utf-8")).hexdigest()
 
-        echo "Password has been cracked! It was $word"
+        print(f"Trying password {word}:{wordlistHash}")
 
-        exit 0
+        #if the hash is the same as the correct password's hash then we have cracked the password!
 
-    fi
+        if(wordlistHash == passwordHash):
 
-done
-     
+            print(f"Password has been cracked! It was {word}")
+
+            break
